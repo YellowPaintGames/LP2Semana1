@@ -18,6 +18,11 @@ namespace CuteAnimal
             get;
             set;
         }
+        public int Energy
+        {
+            get;
+            set;
+        }
         public Feed FoodLevel
         {
             get;
