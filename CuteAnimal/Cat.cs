@@ -8,21 +8,32 @@ namespace CuteAnimal
 {
     public class Cat
     {
+        private Random random;
+        private string name;
         public string Name
         {
-            get;
-            set;
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
         }
-        public int Age
-        {
-            get;
-            set;
-        }
+        private string energy;
         public int Energy
         {
-            get;
-            set;
+            get
+            {
+                return Energy;
+            }
+            set
+            {
+                Energy = Math.Clamp(value, 0, 100);
+            }
         }
+        private Feed foodlevel;
         public Feed FoodLevel
         {
             get;
@@ -33,5 +44,30 @@ namespace CuteAnimal
             get;
             set;
         }
+
+        public override string ToString()
+        {
+            return $"{Name} is {FoodLevel} and {MoodLevel} with an energy value of {Energy}";
+        }
+
+        public Cat(string name, Feed food, Mood mood)
+        {
+            Name = name;
+            FoodLevel = food;
+            MoodLevel = mood;
+            Energy = 100;
+        }
+        private Cat()
+        {
+            random = new Random();
+        }
+        public Cat(string name) : this()
+        {
+            Name = name;
+            FoodLevel = (Feed)random.Next(5);
+            MoodLevel = (Mood)random.Next(4);
+            Energy = random.Next(1, 21);
+        }
+
     }
 }

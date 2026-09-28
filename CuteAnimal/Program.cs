@@ -6,7 +6,10 @@ namespace CuteAnimal
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello LP!");
+            Cat cat = new Cat("Big Bernard");
+            Cat cat2 = new Cat("Big Bertha", Feed.AboutToExplode, Mood.HyperActive);
+            Console.WriteLine(cat);
+            Console.WriteLine(cat2);
         }
     }
 }
